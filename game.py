@@ -189,8 +189,12 @@ class Game () :
     
     
     def stats (self, screen) :
-        self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 25)
-        self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 30)
+        if self.size_jeux_1g == True :
+            self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 45)
+            self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 50)
+        else :
+            self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 25)
+            self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 30)
         self.health_text = self.font.render(f"Damage : {self.player.damage}", 1, (255, 255, 255))
         self.xp_text = self.font.render(f"Level : {self.player.lvl}", 1, (255, 255, 255))
         self.movespeed_text = self.font.render(f"Move Speed : {self.player.movespeed}", 1, (255, 255, 255))
@@ -204,34 +208,64 @@ class Game () :
         self.prot2_text = self.font2.render("+", 1, (255, 255, 255))
         self.dps2_text = self.font2.render("+", 1, (255, 255, 255))
         # affiche ajouts a stats
-        pygame.draw.rect(screen, (23, 22, 22), (10, 50, 200, 185))
-        pygame.draw.rect(screen, (23, 22, 22), (10, 50, 200, 185), 4)
-        # carré noir/gris
-        screen.blit(self.xp_text, (15, 55))
-        screen.blit(self.health_text, (15, 80))
-        screen.blit(self.movespeed_text, (15, 105))
-        screen.blit(self.prot_text, (15, 130))
-        screen.blit(self.dps_text, (15, 155))
-        screen.blit(self.point_text, (15, 180))
-        screen.blit(self.gold_text, (15, 205))
-        # affichage des informations sur l'écrans
-        screen.blit(self.health2_text, (195, 77.5))
-        screen.blit(self.movespeed2_text, (195, 102.5))
-        screen.blit(self.prot2_text, (195, 127.5))
-        screen.blit(self.dps2_text, (195, 152.5))
-        # affichage du + pour l'ajouts des points sur l'écrans
-        self.health2_text_rect = self.ar.get_rect()
-        self.health2_text_rect.x = 194
-        self.health2_text_rect.y = 88
-        self.movespeed2_text_rect = self.ar.get_rect()
-        self.movespeed2_text_rect.x = 194
-        self.movespeed2_text_rect.y = 113
-        self.dps2_text_rect = self.ar.get_rect()
-        self.dps2_text_rect.x = 194
-        self.dps2_text_rect.y = 163
-        self.prot2_text_rect = self.ar.get_rect()
-        self.prot2_text_rect.x = 194
-        self.prot2_text_rect.y = 138
+        if self.size_jeux_1g == True :
+            pygame.draw.rect(screen, (23, 22, 22), (10, 50, 320, 300))
+            pygame.draw.rect(screen, (23, 22, 22), (10, 50, 320, 300), 4)
+            # carré noir/gris
+            screen.blit(self.xp_text, (15, 55))
+            screen.blit(self.health_text, (15, 95))
+            screen.blit(self.movespeed_text, (15, 135))
+            screen.blit(self.prot_text, (15, 175))
+            screen.blit(self.dps_text, (15, 215))
+            screen.blit(self.point_text, (15, 255))
+            screen.blit(self.gold_text, (15, 295))
+            # affichage des informations sur l'écrans
+            screen.blit(self.health2_text, (295, 93.5))
+            screen.blit(self.movespeed2_text, (295, 132.5))
+            screen.blit(self.prot2_text, (295, 173.5))
+            screen.blit(self.dps2_text, (295, 212.5))
+            # affichage du + pour l'ajouts des points sur l'écrans
+            self.health2_text_rect = self.ar.get_rect()
+            self.health2_text_rect.x = 194
+            self.health2_text_rect.y = 88
+            self.movespeed2_text_rect = self.ar.get_rect()
+            self.movespeed2_text_rect.x = 194
+            self.movespeed2_text_rect.y = 113
+            self.dps2_text_rect = self.ar.get_rect()
+            self.dps2_text_rect.x = 194
+            self.dps2_text_rect.y = 163
+            self.prot2_text_rect = self.ar.get_rect()
+            self.prot2_text_rect.x = 194
+            self.prot2_text_rect.y = 138
+        else :
+            pygame.draw.rect(screen, (23, 22, 22), (10, 50, 200, 185))
+            pygame.draw.rect(screen, (23, 22, 22), (10, 50, 200, 185), 4)
+            # carré noir/gris
+            screen.blit(self.xp_text, (15, 55))
+            screen.blit(self.health_text, (15, 80))
+            screen.blit(self.movespeed_text, (15, 105))
+            screen.blit(self.prot_text, (15, 130))
+            screen.blit(self.dps_text, (15, 155))
+            screen.blit(self.point_text, (15, 180))
+            screen.blit(self.gold_text, (15, 205))
+            # affichage des informations sur l'écrans
+            screen.blit(self.health2_text, (195, 77.5))
+            screen.blit(self.movespeed2_text, (195, 102.5))
+            screen.blit(self.prot2_text, (195, 127.5))
+            screen.blit(self.dps2_text, (195, 152.5))
+            # affichage du + pour l'ajouts des points sur l'écrans
+            self.health2_text_rect = self.ar.get_rect()
+            self.health2_text_rect.x = 194
+            self.health2_text_rect.y = 88
+            self.movespeed2_text_rect = self.ar.get_rect()
+            self.movespeed2_text_rect.x = 194
+            self.movespeed2_text_rect.y = 113
+            self.dps2_text_rect = self.ar.get_rect()
+            self.dps2_text_rect.x = 194
+            self.dps2_text_rect.y = 163
+            self.prot2_text_rect = self.ar.get_rect()
+            self.prot2_text_rect.x = 194
+            self.prot2_text_rect.y = 138
         
     
     def cooldown_sword (self) :
@@ -240,8 +274,12 @@ class Game () :
         
         
     def stats_inv (self, screen) :
-        self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 25)
-        self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 30)
+        if self.size_jeux_1g == True :
+            self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 45)
+            self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 50)
+        else :
+            self.font = pygame.font.Font('assets\Staatliches-Regular.ttf', 25)
+            self.font2 = pygame.font.Font('assets\Staatliches-Regular.ttf', 30)
         self.font4 = pygame.font.Font('assets\Oswald-Regular.ttf', 18)
         self.health_text = self.font.render(f"Damage : {self.player.damage}", 1, (255, 255, 255))
         self.xp_text = self.font.render(f"Level : {self.player.lvl}", 1, (255, 255, 255))
@@ -470,10 +508,16 @@ class Game () :
         self.player.xp_bar_length = 200
         self.player.xp_ratio = self.player.next_level / self.player.xp_bar_length
         if self.inventair == True :
-            pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1280, 680))
-            pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1280, 680), 4)
-            self.player.update_health_bar_inv(screen)
-            self.player.update_xp_bar_inv(screen)
+            if self.size_jeux_1g == True :
+                pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1880, 980))
+                pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1880, 980), 4)
+                self.player.update_health_bar_inv(screen)
+                self.player.update_xp_bar_inv(screen)
+            else : 
+                pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1280, 680))
+                pygame.draw.rect(screen, (43, 43, 43), (10, 10, 1280, 680), 4)
+                self.player.update_health_bar_inv(screen)
+                self.player.update_xp_bar_inv(screen)
             
 
 
